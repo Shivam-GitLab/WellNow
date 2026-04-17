@@ -1,3 +1,15 @@
 spring:
   application:
     name: WellNow
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wellnow
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
