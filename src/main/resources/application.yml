@@ -13,3 +13,10 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: false
+
+logging:
+  level:
+    org.springframework: INFO
+    com.warenova.wms: DEBUG
+  pattern:
+    console: "%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n"
