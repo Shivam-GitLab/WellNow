@@ -1,6 +1,6 @@
-package com.sm.wellnow.repository;
+package com.sm.wellnow.repository.user;
 
-import com.sm.wellnow.model.User;
+import com.sm.wellnow.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

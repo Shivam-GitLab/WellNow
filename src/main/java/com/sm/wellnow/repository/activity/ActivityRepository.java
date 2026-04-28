@@ -1,7 +1,7 @@
-package com.sm.wellnow.repository;
+package com.sm.wellnow.repository.activity;
 
 
-import com.sm.wellnow.model.Activity;
+import com.sm.wellnow.model.activity.Activity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

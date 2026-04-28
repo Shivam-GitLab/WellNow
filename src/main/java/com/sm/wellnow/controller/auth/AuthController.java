@@ -1,9 +1,8 @@
-package com.sm.wellnow.controller;
+package com.sm.wellnow.controller.auth;
 
-import com.sm.wellnow.dto.RegisterRequest;
-import com.sm.wellnow.dto.RegisterResponse;
-import com.sm.wellnow.model.User;
-import com.sm.wellnow.service.UserService;
+import com.sm.wellnow.dto.register.RegisterRequest;
+import com.sm.wellnow.dto.register.RegisterResponse;
+import com.sm.wellnow.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

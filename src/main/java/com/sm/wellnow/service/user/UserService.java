@@ -1,7 +1,7 @@
-package com.sm.wellnow.service;
+package com.sm.wellnow.service.user;
 
-import com.sm.wellnow.dto.RegisterRequest;
-import com.sm.wellnow.dto.RegisterResponse;
+import com.sm.wellnow.dto.register.RegisterRequest;
+import com.sm.wellnow.dto.register.RegisterResponse;
 import org.springframework.stereotype.Service;
 
 @Service

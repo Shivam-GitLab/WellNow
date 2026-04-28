@@ -1,4 +1,4 @@
-package com.sm.wellnow.model;
+package com.sm.wellnow.model.activity;
 // Package where this enum is stored (same as Activity entity for easy access)
 
 public enum ActivityType {

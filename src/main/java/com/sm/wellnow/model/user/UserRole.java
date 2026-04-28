@@ -1,4 +1,4 @@
-package com.sm.wellnow.model;
+package com.sm.wellnow.model.user;
 
 public enum UserRole {
     USER,

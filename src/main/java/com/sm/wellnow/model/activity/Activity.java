@@ -1,6 +1,8 @@
-package com.sm.wellnow.model;  // Package where this entity class resides
+package com.sm.wellnow.model.activity;  // Package where this entity class resides
 
 import com.fasterxml.jackson.annotation.JsonIgnore; // Prevents fields from being serialized in JSON response
+import com.sm.wellnow.model.recommendation.Recommendation;
+import com.sm.wellnow.model.user.User;
 import jakarta.persistence.*; // JPA annotations for ORM mapping
 import lombok.*; // Lombok to reduce boilerplate (getters, setters, etc.)
 import org.hibernate.annotations.CreationTimestamp; // Auto-set creation timestamp

@@ -1,6 +1,6 @@
-package com.sm.wellnow.repository;
+package com.sm.wellnow.repository.recommendation;
 
-import com.sm.wellnow.model.Recommendation;
+import com.sm.wellnow.model.recommendation.Recommendation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

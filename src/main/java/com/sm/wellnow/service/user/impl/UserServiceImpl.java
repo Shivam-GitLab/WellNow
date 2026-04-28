@@ -1,10 +1,10 @@
-package com.sm.wellnow.service.impl;
+package com.sm.wellnow.service.user.impl;
 
-import com.sm.wellnow.dto.RegisterRequest;
-import com.sm.wellnow.dto.RegisterResponse;
-import com.sm.wellnow.model.User;
-import com.sm.wellnow.repository.UserRepository;
-import com.sm.wellnow.service.UserService;
+import com.sm.wellnow.dto.register.RegisterRequest;
+import com.sm.wellnow.dto.register.RegisterResponse;
+import com.sm.wellnow.model.user.User;
+import com.sm.wellnow.repository.user.UserRepository;
+import com.sm.wellnow.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
