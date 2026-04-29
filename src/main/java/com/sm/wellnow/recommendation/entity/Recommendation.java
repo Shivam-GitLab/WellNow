@@ -3,7 +3,7 @@ package com.sm.wellnow.recommendation.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore; // Prevents infinite recursion in JSON
 import com.sm.wellnow.activity.entity.Activity;
-import com.sm.wellnow.user.entity.User;
+import com.sm.wellnow.auth.entity.User;
 import jakarta.persistence.*; // JPA annotations for ORM mapping
 import lombok.*; // Lombok to reduce boilerplate
 import org.hibernate.annotations.CreationTimestamp; // Auto set created time

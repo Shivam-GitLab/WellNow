@@ -1,4 +1,4 @@
-package com.sm.wellnow.user.entity;
+package com.sm.wellnow.auth.entity;
 // Package where the User entity is stored
 
 import com.fasterxml.jackson.annotation.JsonIgnore; // Prevents infinite recursion in JSON

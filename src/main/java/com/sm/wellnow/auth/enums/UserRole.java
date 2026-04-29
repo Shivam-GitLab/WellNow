@@ -1,4 +1,4 @@
-package com.sm.wellnow.user.enums;
+package com.sm.wellnow.auth.enums;
 
 public enum UserRole {
     USER,

@@ -4,10 +4,10 @@ import com.sm.wellnow.recommendation.dto.RecommendationRequest;
 import com.sm.wellnow.activity.entity.Activity;
 import com.sm.wellnow.recommendation.entity.Recommendation;
 import com.sm.wellnow.recommendation.service.RecommendationService;
-import com.sm.wellnow.user.entity.User;
+import com.sm.wellnow.auth.entity.User;
 import com.sm.wellnow.activity.repository.ActivityRepository;
 import com.sm.wellnow.recommendation.repository.RecommendationRepository;
-import com.sm.wellnow.user.repository.UserRepository;
+import com.sm.wellnow.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.sm.wellnow.user.dto.register;
+package com.sm.wellnow.auth.dto.register;
 
 
 import lombok.AllArgsConstructor;

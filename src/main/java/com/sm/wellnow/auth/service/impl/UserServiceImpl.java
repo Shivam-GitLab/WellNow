@@ -1,10 +1,11 @@
-package com.sm.wellnow.user.service.impl;
+package com.sm.wellnow.auth.service.impl;
 
-import com.sm.wellnow.user.dto.register.RegisterRequest;
-import com.sm.wellnow.user.dto.register.RegisterResponse;
-import com.sm.wellnow.user.entity.User;
-import com.sm.wellnow.user.repository.UserRepository;
-import com.sm.wellnow.user.service.UserService;
+import com.sm.wellnow.auth.dto.login.LoginRequest;
+import com.sm.wellnow.auth.dto.register.RegisterRequest;
+import com.sm.wellnow.auth.dto.register.RegisterResponse;
+import com.sm.wellnow.auth.entity.User;
+import com.sm.wellnow.auth.repository.UserRepository;
+import com.sm.wellnow.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,8 @@ public class UserServiceImpl implements UserService {
 
         return mapToResponse(savedUser);
     }
-    private static RegisterResponse mapToResponse(User savedUser) {
+
+    public RegisterResponse mapToResponse(User savedUser) {
         return RegisterResponse.builder()
                 .id(savedUser.getId())
                 .email(savedUser.getEmail())
@@ -34,5 +36,10 @@ public class UserServiceImpl implements UserService {
                 .createdAt(savedUser.getCreatedAt())
                 .updatedAt(savedUser.getUpdatedAt())
                 .build();
+    }
+
+    @Override
+    public User authenticate(LoginRequest loginRequest) {
+        return null;
     }
 }

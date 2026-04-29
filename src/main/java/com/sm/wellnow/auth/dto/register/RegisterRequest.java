@@ -1,6 +1,6 @@
-package com.sm.wellnow.user.dto.register;
+package com.sm.wellnow.auth.dto.register;
 
-import com.sm.wellnow.user.enums.UserRole;
+import com.sm.wellnow.auth.enums.UserRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

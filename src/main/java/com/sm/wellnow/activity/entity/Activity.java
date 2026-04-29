@@ -3,7 +3,7 @@ package com.sm.wellnow.activity.entity;  // Package where this entity class resi
 import com.fasterxml.jackson.annotation.JsonIgnore; // Prevents fields from being serialized in JSON response
 import com.sm.wellnow.activity.enums.ActivityType;
 import com.sm.wellnow.recommendation.entity.Recommendation;
-import com.sm.wellnow.user.entity.User;
+import com.sm.wellnow.auth.entity.User;
 import jakarta.persistence.*; // JPA annotations for ORM mapping
 import lombok.*; // Lombok to reduce boilerplate (getters, setters, etc.)
 import org.hibernate.annotations.CreationTimestamp; // Auto-set creation timestamp
