@@ -1,5 +1,8 @@
 package com.sm.wellnow.auth.controller;
 
+import com.sm.wellnow.auth.dto.login.LoginRequest;
+import com.sm.wellnow.auth.dto.login.LoginResponse;
+import com.sm.wellnow.auth.entity.User;
 import com.sm.wellnow.config.JwtUtils;
 import com.sm.wellnow.auth.dto.register.RegisterRequest;
 import com.sm.wellnow.auth.dto.register.RegisterResponse;
@@ -7,6 +10,7 @@ import com.sm.wellnow.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,7 +31,7 @@ public class AuthController {
         return new ResponseEntity<>(userService.register(registerRequest),HttpStatus.CREATED);
         */
     }
-   /* @PostMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         try {
             User user = userService.authenticate(loginRequest);
@@ -40,6 +44,6 @@ public class AuthController {
             e.printStackTrace();
             return ResponseEntity.status(401).build();
         }
-    }*/
+    }
 
 }
