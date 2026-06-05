@@ -1,9 +1,12 @@
 package com.sm.wellnow.config;
 
+
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.sql.DataSource;
 
@@ -29,39 +33,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http
-                // Disable CSRF for testing
-                .csrf(AbstractHttpConfigurer::disable)
-
-                // Authorization Rules
+        http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-
-                  /*    .requestMatchers("/admin/**")
-                        .hasAuthority("ROLE_ADMIN")
-
-                        .requestMatchers("/user/**")
-                        .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-
-                         .requestMatchers("/admin/**")
-                         .hasRole("ADMIN")
-                         .requestMatchers("/user/**")
-                         .hasAnyRole("USER", "ADMIN")
-*/
-                         .anyRequest().authenticated()
-                )
-
-                // Basic Authentication
-                .httpBasic(Customizer.withDefaults())
-
-                // Logout
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessHandler((request, response, authentication) -> {
-                            response.setStatus(200);
-                            response.getWriter().write("Logged out successfully");
-                        })
+                        .requestMatchers(
+                                "/api/auth/register",
+                                "/api/auth/login")
+                        .permitAll()
+                        .anyRequest().authenticated()
                 );
-
+//        http.addFilterBefore(authenticationFilter,
+//                UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -69,27 +50,25 @@ public class SecurityConfig {
     UserDetailsService userDetailsService() {
 
         UserDetails user1 = User.withUsername("user123")
-//                .password("{noop}password1")
                 .password(passwordEncoder().encode("user123"))
                 .roles("USER")
                 .build();
 
         UserDetails user2 = User.withUsername("admin123")
-//                .password("{noop}admin123")
                 .password(passwordEncoder().encode("admin123"))
                 .roles("ADMIN")
                 .build();
 
         JdbcUserDetailsManager userDetailsManager = new JdbcUserDetailsManager(dataSource);
 
-        // Only create users if they don't already exist
 
-        if (!userDetailsManager.userExists("user1")) {
-            userDetailsManager.createUser(user1);
-        }
-        if (!userDetailsManager.userExists("admin1")) {
-            userDetailsManager.createUser(user2);
-        }
+            if (!userDetailsManager.userExists(user1.getUsername())) {
+                userDetailsManager.createUser(user1);
+            }
+
+            if (!userDetailsManager.userExists(user2.getUsername())) {
+                userDetailsManager.createUser(user2);
+            }
 
         return userDetailsManager;
     }
@@ -97,5 +76,12 @@ public class SecurityConfig {
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration builder)
+            throws Exception {
+        return builder.getAuthenticationManager();
     }
 }

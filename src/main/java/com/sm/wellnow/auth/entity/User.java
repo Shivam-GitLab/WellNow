@@ -2,6 +2,7 @@ package com.sm.wellnow.auth.entity;
 // Package where the User entity is stored
 
 import com.fasterxml.jackson.annotation.JsonIgnore; // Prevents infinite recursion in JSON
+import com.sm.wellnow.auth.enums.UserRole;
 import com.sm.wellnow.recommendation.entity.Recommendation;
 import com.sm.wellnow.activity.entity.Activity;
 import jakarta.persistence.*; // JPA annotations
@@ -9,6 +10,7 @@ import lombok.*; // Lombok for boilerplate reduction
 import org.hibernate.annotations.CreationTimestamp; // Auto-set creation time
 import org.hibernate.annotations.UpdateTimestamp; // Auto-update timestamp
 
+import java.net.ProtocolFamily;
 import java.time.LocalDateTime; // Date-time handling
 import java.util.ArrayList; // List implementation
 import java.util.List; // List interface
@@ -40,6 +42,9 @@ public class User {
     private String lastName;
     // User's last name
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role = UserRole.USER;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     // One user can have multiple activities
     // mappedBy: refers to 'user' field in Activity entity
@@ -65,5 +70,7 @@ public class User {
     @UpdateTimestamp
     // Automatically updated on every change
     private LocalDateTime updatedAt;
+
+
     // Last updated timestamp
 }
