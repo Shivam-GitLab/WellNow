@@ -6,7 +6,6 @@ import com.sm.wellnow.auth.dto.register.RegisterRequest;
 import com.sm.wellnow.auth.dto.register.RegisterResponse;
 import com.sm.wellnow.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -49,6 +48,6 @@ public class AuthController {
         }
         SecurityContextHolder.getContext().setAuthentication(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return jwtUtils.generateTokenFromUsername(Objects.requireNonNull(userDetails).getUsername());
+        return jwtUtils.generateTokenFromUsername(Objects.requireNonNull(userDetails));
     }
 }
