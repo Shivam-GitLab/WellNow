@@ -6,7 +6,6 @@
 ![Repository](https://img.shields.io/badge/Repository-Public-blue?style=for-the-badge)
 
 ---
-
 ## 🎯 Overview
 
 **WellNow** is a comprehensive wellness and activity tracking platform built with **Spring Boot** and **Java**. It enables users to log their fitness activities, track health metrics, and receive personalized wellness recommendations based on their activity patterns and health data.
